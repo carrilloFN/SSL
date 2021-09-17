@@ -110,7 +110,12 @@ void accionarConEstado(ushort estado, char caracter, ushort *decimalActual, usho
 }
 
 void prepararMultiplicacion(ushort decimalActual, ushort *multAux){
-    (*multAux) = decimalActual;
+    if(*multAux!=0) {
+        (*multAux)*=decimalActual;
+    }
+    else{
+        (*multAux) = decimalActual;
+    }
 }
 
 ushort operar(ushort subtotal, ushort decimalActual, ushort *multAux){
